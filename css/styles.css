@@ -1,0 +1,60 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px; }
+
+body {
+  background-color: gold; }
+
+/*
+ --
+ */
+section.beers {
+  margin: 30px 0; }
+  section.beers #queryForm {
+    margin-bottom: 30px; }
+    section.beers #queryForm input.no-borders {
+      color: #665800;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      border-bottom: 1px solid #F761A1;
+      box-shadow: unset;
+      border-radius: unset;
+      margin: 8px;
+      width: 140px;
+      text-align: center; }
+  section.beers .help-block {
+    display: inline-block; }
+  section.beers .beers-list {
+    text-align: center; }
+    section.beers .beers-list li {
+      display: inline-block;
+      margin-right: 20px;
+      list-style-type: none; }
+      section.beers .beers-list li a.thumbnail {
+        display: inline-block; }
+      section.beers .beers-list li > div.captionBeer {
+        display: inline-block;
+        margin: 5px 0 5px 20px;
+        vertical-align: top;
+        width: 512px;
+        height: 256px;
+        border: 1px solid #F761A1;
+        padding: 10px;
+        overflow: scroll; }
+
+/*
+ --
+ */
+.footer {
+  position: fixed;
+  top: 3px;
+  right: 3px;
+  width: calc(100% - 3px);
+  text-align: right; }
+  .footer p, .footer p a {
+    font-size: 12px; }
+  .footer i.red {
+    color: #BC0213; }
+
+/*# sourceMappingURL=styles.css.map */
