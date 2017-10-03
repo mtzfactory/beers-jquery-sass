@@ -87,7 +87,7 @@ function onQueryIdSuccess(json) {
 }
 
 $(document).on('click', '.beers-list a', function(event) {
-  event.stopPropagation();
+  event.preventDefault();
 
   $('#helpBlock').hide();
 
