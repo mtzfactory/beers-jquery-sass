@@ -1,4 +1,4 @@
-var requestTimeOut;
+//var requestTimeOut;
 var clickedBeer;
 
 $('#helpBlock').hide();
@@ -27,18 +27,25 @@ function search(event) {
     var beerQueryEncoded = encodeURI(beerQuery);
     var url = 'https://quiet-inlet-67115.herokuapp.com/api/search/all?q=' + beerQueryEncoded;
 
-    var request = $.getJSON(url)
-      .done(onQuerySuccess)
+    $.ajax({
+      dataType: "json",
+      url: url,
+      timeout: 2000,
+    }).done(onQuerySuccess)
       .fail(onError);
 
-    requestTimeOut = setTimeout(function() { request.abort(); }, 2000);
+    // var request = $.getJSON(url)
+    //   .done(onQuerySuccess)
+    //   .fail(onError);
+    //
+    // requestTimeOut = setTimeout(function() { request.abort(); }, 2000);
   }
 
   $(this).find('#queryInput').val('');
 }
 
 function onQuerySuccess(json) {
-  clearTimeout(requestTimeOut);
+  //clearTimeout(requestTimeOut);
 
   $('#helpBlock').hide();
   if (json.length <= 0) {
@@ -57,7 +64,7 @@ function onQuerySuccess(json) {
 }
 
 function onError(err) {
-  clearTimeout(requestTimeOut);
+  //clearTimeout(requestTimeOut);
 
   $('#helpBlock').show();
 
@@ -65,7 +72,7 @@ function onError(err) {
 }
 
 function onQueryIdSuccess(json) {
-  clearTimeout(requestTimeOut);
+  //clearTimeout(requestTimeOut);
 
   $('#helpBlock').hide();
   if (json.length <= 0) {
@@ -76,14 +83,23 @@ function onQueryIdSuccess(json) {
   var name = json.nameDisplay || 'no name';
   var description = json.style ? json.style.description : 'no description';
 
-  $('li .captionBeer').remove();
+  //$('li .captionBeer').remove();
   //var beerDescription = $('<li class="descBeer"><div class="captionBeer beer-' + json.id + '"><h3>' + name + '</h3><p class="text-justify">' + description + '</p></div></li>');
-  var beerDescription = $('<div class="captionBeer beer-' + json.id + '"><h3>' + name + '</h3><p class="text-justify">' + description + '</p></div>');
   //if ($('li.descBeer .beer-' + json.id).length <= 0)
-  if ($('.captionBeer.beer-' + json.id).length <= 0)
-    $(clickedBeer).append(beerDescription);
-
+  //var beerDescription = $('<div class="captionBeer beer-' + json.id + '"><h3>' + name + '</h3><p class="text-justify">' + description + '</p></div>');
+  //if ($('.captionBeer.beer-' + json.id).length <= 0)
+  //  $(clickedBeer).append(beerDescription);
   //$('#descBeer').scrollView();
+
+  var beerDescription = '<div class="captionBeer beer-' + json.id + '"><h3>' + name + '</h3><p class="text-justify">' + description + '</p></div>';
+
+  var alcoholContent = '% alcohol content: ' + json.abv
+
+
+  var overlay = $('.overlay > .overlay-content');
+  overlay.empty();
+  overlay.append(beerDescription);
+  overlay.parent().css('width', '100%');
 }
 
 $(document).on('click', '.beers-list a', function(event) {
@@ -101,13 +117,20 @@ $(document).on('click', '.beers-list a', function(event) {
 
   var url = 'https://quiet-inlet-67115.herokuapp.com/api/beer/' + beerId;
 
-  var request = $.getJSON(url)
-    .done(onQueryIdSuccess)
+  $.ajax({
+    dataType: "json",
+    url: url,
+    timeout: 2000,
+  }).done(onQueryIdSuccess)
     .fail(onError);
 
-  requestTimeOut = setTimeout(function() { request.abort(); }, 2000);
+  // var request = $.getJSON(url)
+  //   .done(onQueryIdSuccess)
+  //   .fail(onError);
+
+  //requestTimeOut = setTimeout(function() { request.abort(); }, 2000);
 });
 
-// $(window).on('load', 'img', function(){
-//   console.log(this);
-// });
+$('.overlay > a').on('click', function () {
+  $(this).parent().css('width', '0');
+});
