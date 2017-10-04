@@ -8,3 +8,5 @@
 Quieres saber todo acerca tu cerveza favorita? Este es un pequeño reto de JQuery y  ajax.
 
  + [beer's website](https://mtzfactory.github.io/jquery-challenge-2/)
+
+![cervezas-screenshot-1](./img/screenshot-1.png)
