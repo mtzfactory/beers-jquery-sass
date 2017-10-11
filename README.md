@@ -4,8 +4,6 @@
 ![html-5](https://mtzfactory.github.io/logos/png/html-5.png)
 ![css-3](https://mtzfactory.github.io/logos/png/css-3.png)
 
-## Full Stack Web Development Bootcamp @Otoño2017
-
 ### Beer's website, con JQuery y Ajax.
 
 Quieres saber todo acerca tu cerveza favorita? Este es un pequeño reto de JQuery y ajax.
@@ -13,3 +11,5 @@ Quieres saber todo acerca tu cerveza favorita? Este es un pequeño reto de JQuer
  + [beer's website](https://mtzfactory.github.io/jquery-challenge-2/)
 
 ![cervezas-screenshot-1](./img/screenshot-1.png)
+
+#### SkylabCoders Academy - Full Stack Web Development Bootcamp
